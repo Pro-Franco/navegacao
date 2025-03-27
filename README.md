@@ -80,3 +80,9 @@ Componente responsável pela navegação de abas (tabs), que conecta as diferent
 
 Layout
 Componente de layout geral, incluindo cabeçalho, rodapé e a estrutura básica do app.
+
+Home.js
+Tela principal do aplicativo, onde o usuário tem acesso às principais funcionalidades e informações iniciais.
+
+Profile.js
+Tela de perfil do usuário, exibindo suas informações pessoais detalhadas e opções de edição.
