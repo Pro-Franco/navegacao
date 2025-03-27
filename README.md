@@ -19,6 +19,7 @@ Este é um projeto de **Navegação de telas** desenvolvido com **React Native**
 ![Styled Components](https://img.shields.io/badge/Styled_Components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)  ![Axios](https://img.shields.io/badge/Axios-5A29E4?style=for-the-badge&logo=axios&logoColor=white)
 ![](https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white)
 
+![Franco GitHub stats](https://github-readme-stats.vercel.app/api?username=franco&hide=contribs,prs)
 
 
 ## Objetivo: Demonstrar a negação entre telas usando expo-router e React-Native
