@@ -15,15 +15,7 @@
    ```bash
     npx expo start
    ```
-
-# 📌 Documentação do Projeto
-
-# Estrutura de Pastas do Projeto
-
-Abaixo está a estrutura de pastas recomendada para o projeto, incluindo a explicação de cada pasta e arquivo.
-
-````plaintext
-
+#   📌 Expo Router
 Expo Router é uma ferramenta de navegação projetada para aplicações Expo/React Native, permitindo uma abordagem simplificada com navegação baseada em arquivos. Aqui estão os componentes principais e outras funções de navegação que o Expo Router oferece:
 
 Componentes Principais
@@ -69,6 +61,14 @@ A função router.refresh() permite recarregar a tela atual, similar ao botão d
 router.prefetch()
 A função router.prefetch() é usada para pré-carregar uma rota antes de ser acessada, o que pode melhorar o desempenho ao navegar entre telas.
 
+
+# 📌 Documentação do Projeto
+
+# Estrutura de Pastas do Projeto
+
+Abaixo está a estrutura de pastas recomendada para o projeto, incluindo a explicação de cada pasta e arquivo.
+
+````plaintext
 project-root/
 ├── src/app/
 │   ├── (stack)
