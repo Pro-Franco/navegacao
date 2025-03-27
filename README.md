@@ -1,50 +1,319 @@
-# Welcome to your Expo app 👋
+# Bem vindo ao projeto Navegação👋
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+## Objetivo: Demonstrar a negação entre telas usando expo-router e React-Native
 
-## Get started
+## Inicar o projeto siga as intruções a seguir
 
-1. Install dependencies
+1. Instalar as dependencias de projeto
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. Executar o aplicativo
 
    ```bash
     npx expo start
    ```
 
-In the output, you'll find options to open the app in a
+# 📌 Documentação do Projeto
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+# Estrutura de Pastas do Projeto
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Abaixo está a estrutura de pastas recomendada para o projeto, incluindo a explicação de cada pasta e arquivo.
 
-## Get a fresh project
+````plaintext
+project-root/
+├── src/app/
+│   ├── (stack)
+│       ├── dashboard
+        ├── settings
+│   ├── (tabs)
+│       ├── _layout
+│       ├── account
+│       ├── home
+│       ├── order
+│   ├── profile
+│       ├── [id]
+│   ├── _layout
+│   └── index
+├── screens/
+│   ├── Home.js
+│   └── Profile.js
+└── App.json
 
-When you're ready, run:
 
-```bash
-npm run reset-project
-```
+## 📑 Índice
+1. [Introdução](#introducao)
+2. [Dashboard.js](#dashboard)
+3. [Settings.js](#settings)
+4. [TabLayout.js](#tablayout)
+5. [AccountTab.js](#accounttab)
+6. [HomeTab.js](#hometab)
+7. [OrderTab.js](#ordertab)
+8. [Profile.js](#profile)
+9. [Layout.js](#layout)
+10. [Home.js](#home)
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+---
 
-## Learn more
+## 📌 Introdução {#introducao}
+Este documento contém a documentação detalhada dos arquivos principais do projeto, explicando suas funções e estrutura. O objetivo é ajudar iniciantes a entender como o código funciona e como ele se organiza dentro do aplicativo.
 
-To learn more about developing your project with Expo, look at the following resources:
+---
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+## 📂 Dashboard.js {#dashboard}
+**Descrição:** Tela do **Dashboard**, onde são exibidos os principais dados do app.
 
-## Join the community
+### 🔹 Código e Explicação
+```ts
+import { View, Text, Button } from 'react-native';
+import { useRouter } from 'expo-router';
 
-Join our community of developers creating universal apps.
+// Componente de Dashboard
+export default function Dashboard() {
+  const router = useRouter();
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>📊 Dashboard</Text>
+      <Button
+        title="Ir para Home (Tabs)"
+        onPress={() => router.replace('/(tabs)/home')}  // Navega para a tela "home"
+      />
+      <Button
+        title="Ir para o Perfil (com ID)"
+        onPress={() => router.push('/profile/123')}  // Navega para a tela de perfil com ID 123
+      />
+    </View>
+  );
+}
+
+
+---
+
+### **Settings.js**
+```markdown
+## 📂 Settings.js
+
+**Descrição:** Tela de **Configurações**, onde o usuário pode ajustar preferências e opções do aplicativo.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text, Switch } from 'react-native';
+import { useState } from 'react';
+
+// Componente de Configurações
+export default function Settings() {
+  const [isEnabled, setIsEnabled] = useState(false);
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>⚙️ Configurações</Text>
+      <Text>Ativar Notificações:</Text>
+      <Switch
+        value={isEnabled}
+        onValueChange={toggleSwitch}
+      />
+    </View>
+  );
+}
+
+
+
+---
+
+### **TabLayout.js**
+```markdown
+## 📂 TabLayout.js
+
+**Descrição:** Componente responsável pela estrutura de navegação de abas (Tabs).
+
+### 🔹 Código e Explicação
+```js
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeTab from './HomeTab';
+import AccountTab from './AccountTab';
+import OrderTab from './OrderTab';
+
+const Tab = createBottomTabNavigator();
+
+export default function TabLayout() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeTab} />
+      <Tab.Screen name="Account" component={AccountTab} />
+      <Tab.Screen name="Orders" component={OrderTab} />
+    </Tab.Navigator>
+  );
+}
+
+
+---
+
+### **TabLayout.js**
+```markdown
+## 📂 TabLayout.js
+
+**Descrição:** Componente responsável pela estrutura de navegação de abas (Tabs).
+
+### 🔹 Código e Explicação
+```js
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import HomeTab from './HomeTab';
+import AccountTab from './AccountTab';
+import OrderTab from './OrderTab';
+
+const Tab = createBottomTabNavigator();
+
+export default function TabLayout() {
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeTab} />
+      <Tab.Screen name="Account" component={AccountTab} />
+      <Tab.Screen name="Orders" component={OrderTab} />
+    </Tab.Navigator>
+  );
+}
+
+
+---
+
+### **AccountTab.js**
+```markdown
+## 📂 AccountTab.js
+
+**Descrição:** Aba **Conta**, onde o usuário pode gerenciar suas informações pessoais.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text } from 'react-native';
+
+// Componente da Aba de Conta
+export default function AccountTab() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>👤 Conta</Text>
+      <Text>Detalhes da conta do usuário.</Text>
+    </View>
+  );
+}
+
+
+---
+
+### **HomeTab.js**
+```markdown
+## 📂 HomeTab.js
+
+**Descrição:** Aba **Home**, onde são exibidos os dados principais do usuário.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text } from 'react-native';
+
+// Componente da Aba Home
+export default function HomeTab() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>🏠 Home</Text>
+      <Text>Bem-vindo à sua página inicial.</Text>
+    </View>
+  );
+}
+
+
+
+---
+
+### **OrderTab.js**
+```markdown
+## 📂 OrderTab.js
+
+**Descrição:** Aba **Pedidos**, onde são exibidos os pedidos realizados pelo usuário.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text } from 'react-native';
+
+// Componente da Aba de Pedidos
+export default function OrderTab() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>🛍️ Pedidos</Text>
+      <Text>Seus pedidos recentes aparecerão aqui.</Text>
+    </View>
+  );
+}
+
+
+
+---
+
+### **Profile.js**
+```markdown
+## 📂 Profile.js
+
+**Descrição:** Tela de **Perfil**, onde são exibidas as informações detalhadas do usuário.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text } from 'react-native';
+
+// Componente de Perfil
+export default function Profile({ id }) {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>👤 Perfil</Text>
+      <Text>Perfil do usuário com ID: {id}</Text>
+    </View>
+  );
+}
+
+
+---
+
+### **Layout.js**
+```markdown
+## 📂 Layout.js
+
+**Descrição:** Componente de **Layout** geral, que define a estrutura do app, incluindo cabeçalho e rodapé.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text } from 'react-native';
+
+// Componente de Layout
+export default function Layout({ children }) {
+  return (
+    <View style={{ flex: 1 }}>
+      <Text style={{ fontSize: 24, padding: 10 }}>📱 Layout Principal</Text>
+      {children}
+    </View>
+  );
+}
+
+
+---
+
+### **Home.js**
+```markdown
+## 📂 Home.js
+
+**Descrição:** Tela de **Home**, onde são apresentados os dados principais de acesso.
+
+### 🔹 Código e Explicação
+```js
+import { View, Text } from 'react-native';
+
+// Componente de Home
+export default function Home() {
+  return (
+    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+      <Text style={{ fontSize: 24 }}>🏠 Página Inicial</Text>
+      <Text>Bem-vindo ao aplicativo!</Text>
+    </View>
+  );
+}
+````
