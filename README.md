@@ -56,4 +56,27 @@ project-root/
 10. [Home.js](#home)
 
 ---
+Arquivos:
+AccountTab
+Componente que representa a aba de "Conta", onde o usuário pode gerenciar suas informações pessoais.
 
+Dashboard
+Componente que exibe o Dashboard do aplicativo, com dados principais, como gráficos e estatísticas.
+
+HomeTab
+Componente que representa a aba inicial do aplicativo, exibindo as funcionalidades centrais para o usuário.
+
+OrderTab
+Componente que exibe a aba de Pedidos, onde o usuário pode acompanhar seus pedidos realizados.
+
+Profile
+Componente que exibe as informações do perfil do usuário, permitindo visualização e edição de dados pessoais.
+
+Settings
+Componente que exibe as configurações do aplicativo, como ativar ou desativar notificações.
+
+TabLayout
+Componente responsável pela navegação de abas (tabs), que conecta as diferentes telas como Home, Conta e Pedidos.
+
+Layout
+Componente de layout geral, incluindo cabeçalho, rodapé e a estrutura básica do app.
